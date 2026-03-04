@@ -1,0 +1,186 @@
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
+from datetime import datetime
+import json
+import os
+import re
+
+# Import our collectors
+from NewsCollector import collect_news
+from ReviewCollector import collect_reviews
+
+# ── Local storage folder ─────────────────────────────────────────────────────
+# Results are saved here until S3 is ready.
+# When S3 is set up, swap this section for a boto3 upload — everything else stays the same.
+RESULTS_DIR = "collected_data"
+os.makedirs(RESULTS_DIR, exist_ok=True)
+
+
+def save_locally(data: dict) -> str:
+    """
+    Save collected results to a local JSON file.
+    Filename format: collected_data/{business}_{location}_{timestamp}.json
+    Returns the filepath so it can be logged or returned in the response.
+    """
+    # Sanitize business name and location for use in filename
+    safe_name     = re.sub(r"[^a-zA-Z0-9]", "_", data["business_name"]).lower()
+    safe_location = re.sub(r"[^a-zA-Z0-9]", "_", data["location"]).lower()
+    timestamp     = datetime.utcnow().strftime("%Y%m%d_%H%M%S")
+    filename      = f"{safe_name}_{safe_location}_{timestamp}.json"
+    filepath      = os.path.join(RESULTS_DIR, filename)
+
+    with open(filepath, "w") as f:
+        json.dump(data, f, indent=2)
+
+    return filepath
+
+
+# ── App ──────────────────────────────────────────────────────────────────────
+
+app = FastAPI(
+    title="Ghostie Data Collection API",
+    description="Collects news articles and customer reviews for hospitality businesses to support sentiment analysis.",
+    version="1.0.0"
+)
+
+
+# ── Request / Response Models ────────────────────────────────────────────────
+
+class CollectRequest(BaseModel):
+    business_name: str
+    location: str
+    category: str
+
+    class Config:
+        json_schema_extra = {
+            "example": {
+                "business_name": "Subway",
+                "location": "Sydney",
+                "category": "restaurant"
+            }
+        }
+
+class CollectResponse(BaseModel):
+    business_name: str
+    location: str
+    category: str
+    collected_at: str
+    total_results: int
+    news_count: int
+    review_count: int
+    saved_to: str        # local filepath (will become S3 key later)
+    data: list
+
+
+# ── Routes ───────────────────────────────────────────────────────────────────
+
+@app.get("/")
+def root():
+    return {
+        "service": "Ghostie Data Collection API",
+        "version": "1.0.0",
+        "status":  "running",
+        "endpoints": {
+            "POST /collect": "Collect news and reviews for a business",
+            "GET /health":   "Health check",
+            "GET /results":  "List all saved result files"
+        }
+    }
+
+
+@app.get("/health")
+def health():
+    return {"status": "healthy", "timestamp": datetime.utcnow().isoformat()}
+
+
+@app.get("/results")
+def list_results():
+    """List all locally saved result files."""
+    files = os.listdir(RESULTS_DIR)
+    files = [f for f in files if f.endswith(".json")]
+    files.sort(reverse=True)  # most recent first
+    return {
+        "count": len(files),
+        "files": files
+    }
+
+
+@app.post("/collect", response_model=CollectResponse)
+def collect(request: CollectRequest):
+    """
+    Collect news articles and customer reviews for a hospitality business.
+
+    - Calls NewsAPI to get recent news articles mentioning the business
+    - Calls SerpAPI Google Maps Reviews to get real customer reviews with star ratings
+    - Saves combined results to a local JSON file (will be S3 once infrastructure is ready)
+    - Returns combined results in a standardized format for downstream processing
+    """
+
+    business_name = request.business_name.strip()
+    location      = request.location.strip()
+    category      = request.category.strip()
+
+    if not business_name:
+        raise HTTPException(status_code=400, detail="business_name cannot be empty")
+    if not location:
+        raise HTTPException(status_code=400, detail="location cannot be empty")
+    if not category:
+        raise HTTPException(status_code=400, detail="category cannot be empty")
+
+    print(f"\n[{datetime.utcnow().isoformat()}] Collect request: {business_name} | {location} | {category}")
+
+    # ── Collect from both sources ────────────────────────────────────────────
+    news_results   = []
+    review_results = []
+    errors         = []
+
+    try:
+        print("  Fetching news articles...")
+        news_results = collect_news(business_name, location, category)
+        print(f"  Got {len(news_results)} news articles")
+    except Exception as e:
+        errors.append(f"NewsAPI error: {str(e)}")
+        print(f"  NewsAPI failed: {e}")
+
+    try:
+        print("  Fetching Google Maps reviews...")
+        review_results = collect_reviews(business_name, location, category)
+        print(f"  Got {len(review_results)} reviews")
+    except Exception as e:
+        errors.append(f"SerpAPI error: {str(e)}")
+        print(f"  SerpAPI failed: {e}")
+
+    # ── Combine results ──────────────────────────────────────────────────────
+    combined = news_results + review_results
+
+    if not combined:
+        raise HTTPException(
+            status_code=404,
+            detail=f"No data found for '{business_name}' in '{location}'. Errors: {errors}"
+        )
+
+    # ── Build response payload ───────────────────────────────────────────────
+    payload = {
+        "business_name": business_name,
+        "location":      location,
+        "category":      category,
+        "collected_at":  datetime.utcnow().isoformat(),
+        "total_results": len(combined),
+        "news_count":    len(news_results),
+        "review_count":  len(review_results),
+        "data":          combined,
+    }
+
+    # ── Save locally ─────────────────────────────────────────────────────────
+    # TODO: replace save_locally() with S3 upload when Do In Kim sets up the bucket
+    filepath = save_locally(payload)
+    print(f"  Saved to: {filepath}")
+
+    payload["saved_to"] = filepath
+    return payload
+
+
+# ── Run locally ──────────────────────────────────────────────────────────────
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)

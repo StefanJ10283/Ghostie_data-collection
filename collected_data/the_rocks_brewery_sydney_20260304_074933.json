@@ -1,0 +1,235 @@
+{
+  "business_name": "The Rocks Brewery",
+  "location": "Sydney",
+  "category": "bar",
+  "collected_at": "2026-03-04T07:49:33.063288",
+  "total_results": 8,
+  "news_count": 0,
+  "review_count": 8,
+  "data": [
+    {
+      "id": "gmaps_5030684466246544934",
+      "source": "google_maps_reviews",
+      "publisher": "Google Maps",
+      "timestamp": "2026-03-02T02:39:53Z",
+      "query": {
+        "business_name": "The Rocks Brewery",
+        "location": "Sydney",
+        "category": "bar"
+      },
+      "business": {
+        "name": "Sydney Brewery Alexandria",
+        "address": "Building 2/160 Bourke Rd, Alexandria NSW 2015, Australia",
+        "overall_rating": 4.4,
+        "total_reviews": 650,
+        "place_id": "ChIJoWF87K2xEmsR02elLIfuP5s",
+        "data_id": "0x6b12b1adec7c61a1:0x9b3fee872ca567d3"
+      },
+      "title": "",
+      "body": "Met my expectations in beer selections quality and food. This time I tried East coast IPA citrusy, fruity and freshing. Intensive food menu bit overpriced, don\u2019t let the plates presentation fool you, it is tasty.\nWell done on the beer quality",
+      "url": "https://www.google.com/maps/place/?q=place_id:ChIJoWF87K2xEmsR02elLIfuP5s",
+      "metadata": {
+        "author": "Fouad Diab",
+        "rating": 5.0,
+        "likes": 0,
+        "review_date": "2 days ago"
+      }
+    },
+    {
+      "id": "gmaps_3720966815187562703",
+      "source": "google_maps_reviews",
+      "publisher": "Google Maps",
+      "timestamp": "2026-02-23T11:16:59Z",
+      "query": {
+        "business_name": "The Rocks Brewery",
+        "location": "Sydney",
+        "category": "bar"
+      },
+      "business": {
+        "name": "Sydney Brewery Alexandria",
+        "address": "Building 2/160 Bourke Rd, Alexandria NSW 2015, Australia",
+        "overall_rating": 4.4,
+        "total_reviews": 650,
+        "place_id": "ChIJoWF87K2xEmsR02elLIfuP5s",
+        "data_id": "0x6b12b1adec7c61a1:0x9b3fee872ca567d3"
+      },
+      "title": "",
+      "body": "Andre is an amazing host, made our group very welcome. Food is amazing, and the atmosphere was rockin",
+      "url": "https://www.google.com/maps/place/?q=place_id:ChIJoWF87K2xEmsR02elLIfuP5s",
+      "metadata": {
+        "author": "Ian Duncan",
+        "rating": 5.0,
+        "likes": 0,
+        "review_date": "a week ago"
+      }
+    },
+    {
+      "id": "gmaps_6542238152285632127",
+      "source": "google_maps_reviews",
+      "publisher": "Google Maps",
+      "timestamp": "2026-02-12T00:58:48Z",
+      "query": {
+        "business_name": "The Rocks Brewery",
+        "location": "Sydney",
+        "category": "bar"
+      },
+      "business": {
+        "name": "Sydney Brewery Alexandria",
+        "address": "Building 2/160 Bourke Rd, Alexandria NSW 2015, Australia",
+        "overall_rating": 4.4,
+        "total_reviews": 650,
+        "place_id": "ChIJoWF87K2xEmsR02elLIfuP5s",
+        "data_id": "0x6b12b1adec7c61a1:0x9b3fee872ca567d3"
+      },
+      "title": "",
+      "body": "I have visited when nobody was there on Monday lol. Very huge place but nothing around.\nWe asked for the recommendation and the charming staff recommended summer ale and let us to try some. It would be good to visit in a large group.",
+      "url": "https://www.google.com/maps/place/?q=place_id:ChIJoWF87K2xEmsR02elLIfuP5s",
+      "metadata": {
+        "author": "Part Time Traveler",
+        "rating": 5.0,
+        "likes": 0,
+        "review_date": "2 weeks ago"
+      }
+    },
+    {
+      "id": "gmaps_5047801823534484112",
+      "source": "google_maps_reviews",
+      "publisher": "Google Maps",
+      "timestamp": "2026-01-28T07:33:37Z",
+      "query": {
+        "business_name": "The Rocks Brewery",
+        "location": "Sydney",
+        "category": "bar"
+      },
+      "business": {
+        "name": "Sydney Brewery Alexandria",
+        "address": "Building 2/160 Bourke Rd, Alexandria NSW 2015, Australia",
+        "overall_rating": 4.4,
+        "total_reviews": 650,
+        "place_id": "ChIJoWF87K2xEmsR02elLIfuP5s",
+        "data_id": "0x6b12b1adec7c61a1:0x9b3fee872ca567d3"
+      },
+      "title": "",
+      "body": "Amazing beers & ciders!\n\nWe\u2019ve had a lot of chilli prawn spaghetti in our time but theirs beats them all hands down!\n\nGreat service too!\n\nKeep it up team \ud83d\ude00",
+      "url": "https://www.google.com/maps/place/?q=place_id:ChIJoWF87K2xEmsR02elLIfuP5s",
+      "metadata": {
+        "author": "Michele Sargent",
+        "rating": 5.0,
+        "likes": 0,
+        "review_date": "a month ago"
+      }
+    },
+    {
+      "id": "gmaps_6281740290846505322",
+      "source": "google_maps_reviews",
+      "publisher": "Google Maps",
+      "timestamp": "2026-01-26T21:44:38Z",
+      "query": {
+        "business_name": "The Rocks Brewery",
+        "location": "Sydney",
+        "category": "bar"
+      },
+      "business": {
+        "name": "Sydney Brewery Alexandria",
+        "address": "Building 2/160 Bourke Rd, Alexandria NSW 2015, Australia",
+        "overall_rating": 4.4,
+        "total_reviews": 650,
+        "place_id": "ChIJoWF87K2xEmsR02elLIfuP5s",
+        "data_id": "0x6b12b1adec7c61a1:0x9b3fee872ca567d3"
+      },
+      "title": "",
+      "body": "10/10 place!\n\nWe are English and would say this is the best roast in Sydney we have found - all the trimmings and extras!\n\nThe venue is great, dog friendly, and all the staff are super friendly and helpful. Special shout out to Barney and Adam who were there the other day, but honestly they are all amazing.\n\nThis is our go-to and highly recommend!!",
+      "url": "https://www.google.com/maps/place/?q=place_id:ChIJoWF87K2xEmsR02elLIfuP5s",
+      "metadata": {
+        "author": "jess attwood",
+        "rating": 5.0,
+        "likes": 0,
+        "review_date": "a month ago"
+      }
+    },
+    {
+      "id": "gmaps_4685699316855959359",
+      "source": "google_maps_reviews",
+      "publisher": "Google Maps",
+      "timestamp": "2026-01-24T08:58:49Z",
+      "query": {
+        "business_name": "The Rocks Brewery",
+        "location": "Sydney",
+        "category": "bar"
+      },
+      "business": {
+        "name": "Sydney Brewery Alexandria",
+        "address": "Building 2/160 Bourke Rd, Alexandria NSW 2015, Australia",
+        "overall_rating": 4.4,
+        "total_reviews": 650,
+        "place_id": "ChIJoWF87K2xEmsR02elLIfuP5s",
+        "data_id": "0x6b12b1adec7c61a1:0x9b3fee872ca567d3"
+      },
+      "title": "",
+      "body": "Such a lovely experience my boyfriend and I had! The staff were so polite and understanding about my allergy to seasme. I wanted to get the cheeseburger however they told me it had seasme seeds, they said they can put it on a tortilla wrap! Honestly such lovely views great place for a date night. One final thing the beer, can't get more fresher than that straight from the tank to the glass.\n\nHighly recommend!",
+      "url": "https://www.google.com/maps/place/?q=place_id:ChIJoWF87K2xEmsR02elLIfuP5s",
+      "metadata": {
+        "author": "Marlena",
+        "rating": 5.0,
+        "likes": 0,
+        "review_date": "a month ago"
+      }
+    },
+    {
+      "id": "gmaps_9043288155785256997",
+      "source": "google_maps_reviews",
+      "publisher": "Google Maps",
+      "timestamp": "2026-01-21T21:10:53Z",
+      "query": {
+        "business_name": "The Rocks Brewery",
+        "location": "Sydney",
+        "category": "bar"
+      },
+      "business": {
+        "name": "Sydney Brewery Alexandria",
+        "address": "Building 2/160 Bourke Rd, Alexandria NSW 2015, Australia",
+        "overall_rating": 4.4,
+        "total_reviews": 650,
+        "place_id": "ChIJoWF87K2xEmsR02elLIfuP5s",
+        "data_id": "0x6b12b1adec7c61a1:0x9b3fee872ca567d3"
+      },
+      "title": "",
+      "body": "Great food, excellent staff. Beer is superb. And very dog friendly",
+      "url": "https://www.google.com/maps/place/?q=place_id:ChIJoWF87K2xEmsR02elLIfuP5s",
+      "metadata": {
+        "author": "Raz Dyer",
+        "rating": 5.0,
+        "likes": 0,
+        "review_date": "a month ago"
+      }
+    },
+    {
+      "id": "gmaps_8988080285450422974",
+      "source": "google_maps_reviews",
+      "publisher": "Google Maps",
+      "timestamp": "2026-01-18T10:44:03Z",
+      "query": {
+        "business_name": "The Rocks Brewery",
+        "location": "Sydney",
+        "category": "bar"
+      },
+      "business": {
+        "name": "Sydney Brewery Alexandria",
+        "address": "Building 2/160 Bourke Rd, Alexandria NSW 2015, Australia",
+        "overall_rating": 4.4,
+        "total_reviews": 650,
+        "place_id": "ChIJoWF87K2xEmsR02elLIfuP5s",
+        "data_id": "0x6b12b1adec7c61a1:0x9b3fee872ca567d3"
+      },
+      "title": "",
+      "body": "came in today at around 8:25, and received some of the best hospitality by (apologies as i didn\u2019t get their names) a female working behind the bar and a male with her as well! They helped me out with what I needed, and were great for a chat! just for this service alone , ill be coming back as a returning customer !\n\nCheers for the water !",
+      "url": "https://www.google.com/maps/place/?q=place_id:ChIJoWF87K2xEmsR02elLIfuP5s",
+      "metadata": {
+        "author": "Alex Markovitch",
+        "rating": 5.0,
+        "likes": 0,
+        "review_date": "a month ago"
+      }
+    }
+  ]
+}
