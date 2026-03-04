@@ -1,160 +1,148 @@
 import requests
 import json
-import re
+import argparse
 from datetime import datetime, timedelta
 
 API_KEY = "7fcff161440b4fd9aae0536fe7a62c1a"
 BASE_URL = "https://newsapi.org/v2/everything"
-# NewsAPI plan limits vary; using 29 avoids an off-by-one on many free keys.
+
 MAX_DAYS_BACK = 29
 
-def collect_news(business_name: str, days_back: int = MAX_DAYS_BACK):
+
+def collect_news(business_name: str, location: str, category: str, days_back: int = MAX_DAYS_BACK):
     """
-    Collect news articles mentioning a specific business.
-    
+    Collect news articles mentioning a specific hospitality business.
+
     Args:
-        business_name: Name of the hospitality business to search for
-        days_back: How many days back to search (default 29 on free plans)
-    
+        business_name : Name of the business (e.g. "Subway")
+        location      : City / region / country (e.g. "Australia")
+        category      : Type of business (e.g. "restaurant", "hotel", "bar")
+        days_back     : How many days back to search (capped at 29 for free tier)
+
     Returns:
-        List of standardized article objects
+        List of standardized article dicts
     """
 
-    # Calculate date range
-    effective_days_back = min(days_back, MAX_DAYS_BACK)
-    if effective_days_back != days_back:
-        print(
-            f" Requested {days_back} days, but capping to {MAX_DAYS_BACK} days "
-            f"to match typical NewsAPI plan limits."
-        )
+    # Cap to free-tier limit
+    days_back = min(days_back, MAX_DAYS_BACK)
+    date_from = (datetime.now() - timedelta(days=days_back)).strftime("%Y-%m-%d")
+    date_to   = datetime.now().strftime("%Y-%m-%d")
 
-    date_from = (datetime.now() - timedelta(days=effective_days_back)).strftime("%Y-%m-%d")
-    date_to = datetime.now().strftime("%Y-%m-%d")
+    # --- Query strategy ---
+    # We search for business_name AND category together.
+    # This disambiguates common words — e.g. "Subway" alone returns NYC transit
+    # articles, but "Subway" AND "restaurant" targets the sandwich chain.
+    # Location is NOT in the query (too restrictive); we filter by it locally instead.
+    query = f'"{business_name}" AND "{category}"'
 
-    # Build the request
     params = {
-        "q": business_name,           # Search query
-        "from": date_from,            # Start date
-        "to": date_to,                # End date
-        "language": "en",             # English articles only
-        "sortBy": "publishedAt",      # Most recent first
-        "pageSize": 20,               # Number of articles to return
-        "apiKey": API_KEY
+        "q":        query,
+        "from":     date_from,
+        "to":       date_to,
+        "language": "en",
+        "sortBy":   "relevancy",   # relevancy works better than publishedAt for disambiguation
+        "pageSize": 100,           # fetch more so filtering has enough to work with
+        "apiKey":   API_KEY,
     }
 
     print(f"\n Searching news for: '{business_name}'")
-    print(f" Date range: {date_from} to {date_to}")
-    print(f" Calling NewsAPI...\n")
+    print(f"   Location : {location}")
+    print(f"   Category : {category}")
+    print(f"   Query    : {query}")
+    print(f"   Dates    : {date_from} to {date_to}\n")
 
-    # Make the API call
     response = requests.get(BASE_URL, params=params, timeout=30)
 
-    # Check if request was successful
+    # Handle free-tier date restriction (HTTP 426)
+    if response.status_code == 426:
+        print("  Plan limit hit on date range. Adjusting start date by +1 day and retrying...\n")
+        new_from = (datetime.strptime(date_from, "%Y-%m-%d") + timedelta(days=1)).strftime("%Y-%m-%d")
+        params["from"] = new_from
+        response = requests.get(BASE_URL, params=params, timeout=30)
+
     if response.status_code != 200:
         try:
-            msg = response.json().get("message")
-        except ValueError:
+            msg = response.json().get("message", "Unknown error")
+        except Exception:
             msg = response.text
-
-        # If the plan blocks older articles, adjust to the earliest allowed date and retry once.
-        if response.status_code == 426 and isinstance(msg, str):
-            match = re.search(r"as far back as (\d{4}-\d{2}-\d{2})", msg)
-            if match:
-                allowed_from = match.group(1)
-                if allowed_from:
-                    try:
-                        allowed_dt = datetime.strptime(allowed_from, "%Y-%m-%d")
-                    except ValueError:
-                        allowed_dt = None
-
-                    # Some plans treat the earliest allowed date as exclusive; bump forward until accepted.
-                    if allowed_dt is not None:
-                        for bump_days in range(1, 4):
-                            new_from = (allowed_dt + timedelta(days=bump_days)).strftime("%Y-%m-%d")
-                            if new_from == params.get("from"):
-                                continue
-
-                            print(
-                                f" Plan limit hit. Adjusting start date to {new_from} and retrying...\n"
-                            )
-                            params["from"] = new_from
-                            response = requests.get(BASE_URL, params=params, timeout=30)
-                            if response.status_code == 200:
-                                data = response.json()
-                                raw_articles = data.get("articles", [])
-                                print(
-                                    f" Found {data.get('totalResults', 0)} total articles, returning top {len(raw_articles)}\n"
-                                )
-
-                                standardized = []
-                                for article in raw_articles:
-                                    standardized.append({
-                                        "id": f"news_{hash(article.get('url', ''))}",
-                                        "source": "newsapi",
-                                        "publisher": article.get("source", {}).get("name", "Unknown"),
-                                        "timestamp": article.get("publishedAt", ""),
-                                        "query": business_name,
-                                        "title": article.get("title", ""),
-                                        "body": article.get("description", ""),
-                                        "url": article.get("url", ""),
-                                        "metadata": {
-                                            "author": article.get("author", ""),
-                                        }
-                                    })
-
-                                return standardized
-
-                            try:
-                                msg = response.json().get("message")
-                            except ValueError:
-                                msg = response.text
-
-                            if response.status_code != 426:
-                                break
-
-        print(f"Error: {response.status_code} - {msg}")
+        print(f"  NewsAPI error {response.status_code}: {msg}")
         return []
 
-    data = response.json()
+    data         = response.json()
     raw_articles = data.get("articles", [])
-    print(f" Found {data.get('totalResults', 0)} total articles, returning top {len(raw_articles)}\n")
+    total        = data.get("totalResults", 0)
+    print(f"  NewsAPI returned {total} total results, fetched top {len(raw_articles)}")
 
-    # Standardize into our data model
+    # --- Local relevance filter ---
+    # Keep only articles where the title OR description contains the business name.
+    # This removes false positives that slipped through the query.
+    def is_relevant(article: dict) -> bool:
+        title = article.get("title") or ""
+        desc  = article.get("description") or ""
+        combined = (title + " " + desc).lower()
+        return business_name.lower() in combined
+
+    relevant = [a for a in raw_articles if is_relevant(a)]
+    print(f"  After relevance filter: {len(relevant)} articles kept, {len(raw_articles) - len(relevant)} removed\n")
+
+    if not relevant:
+        print("  No relevant articles found. Try a different business name or broaden your search.")
+        return []
+
+    # --- Standardize into our data model ---
     standardized = []
-    for article in raw_articles:
+    for article in relevant:
         standardized.append({
-            "id": f"news_{hash(article.get('url', ''))}",
-            "source": "newsapi",
+            "id":        f"news_{abs(hash(article.get('url', '')))}",
+            "source":    "newsapi",
             "publisher": article.get("source", {}).get("name", "Unknown"),
             "timestamp": article.get("publishedAt", ""),
-            "query": business_name,
+            "query": {
+                "business_name": business_name,
+                "location":      location,
+                "category":      category,
+            },
             "title": article.get("title", ""),
-            "body": article.get("description", ""),   # Free tier only gives description, not full text
-            "url": article.get("url", ""),
+            "body":  article.get("description", ""),
+            "url":   article.get("url", ""),
             "metadata": {
                 "author": article.get("author", ""),
-            }
+            },
         })
 
     return standardized
 
 
-# --- Run it ---
+# ── CLI entry point ──────────────────────────────────────────────────────────
 if __name__ == "__main__":
-    # Test with a hospitality business
-    results = collect_news("McDonald's", days_back=90)
+    parser = argparse.ArgumentParser(description="Collect news articles for a hospitality business.")
+    parser.add_argument("business",    nargs="?", help='Business name, e.g. "Subway"')
+    parser.add_argument("--location",  help="City / region / country")
+    parser.add_argument("--category",  help="Business type, e.g. restaurant, hotel, bar")
+    parser.add_argument("--days-back", type=int, default=MAX_DAYS_BACK)
+    parser.add_argument("--out",       default="news_results.json")
+    args = parser.parse_args()
 
-    # Print each article nicely
-    for i, article in enumerate(results):
-        print(f"Article {i+1}:")
+    business_name = (args.business  or "").strip() or input("Enter business name: ").strip()
+    location      = (args.location  or "").strip() or input("Enter location (city / country): ").strip()
+    category      = (args.category  or "").strip() or input("Enter category (restaurant / hotel / bar): ").strip()
+
+    if not business_name: raise SystemExit("  Business name cannot be empty.")
+    if not location:      raise SystemExit("  Location cannot be empty.")
+    if not category:      raise SystemExit("  Category cannot be empty.")
+
+    results = collect_news(business_name, location, category, days_back=args.days_back)
+
+    for i, article in enumerate(results, 1):
+        print(f"Article {i}:")
         print(f"  Publisher : {article['publisher']}")
         print(f"  Title     : {article['title']}")
         print(f"  Date      : {article['timestamp']}")
-        print(f"  Summary   : {article['body'][:100]}..." if article['body'] else "  Summary   : N/A")
+        body_preview = article['body'][:120] + "..." if article['body'] else "N/A"
+        print(f"  Summary   : {body_preview}")
         print(f"  URL       : {article['url']}")
         print()
 
-    # Also save raw output to a JSON file so you can inspect it
-    with open("news_results.json", "w") as f:
+    with open(args.out, "w") as f:
         json.dump(results, f, indent=2)
-    print(f"\n Full results saved to news_results.json")
+    print(f"  {len(results)} articles saved to {args.out}")

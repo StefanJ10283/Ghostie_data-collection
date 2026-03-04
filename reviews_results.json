@@ -1,0 +1,226 @@
+[
+  {
+    "id": "gmaps_6331948574845028491",
+    "source": "google_maps_reviews",
+    "publisher": "Google Maps",
+    "timestamp": "2026-03-04T07:21:41Z",
+    "query": {
+      "business_name": "Subway",
+      "location": "Sydney",
+      "category": "restaurant"
+    },
+    "business": {
+      "name": "Subway",
+      "address": "98/146 City Rd, Darlington NSW 2008, Australia",
+      "overall_rating": 4.8,
+      "total_reviews": 1509,
+      "place_id": "ChIJt-sGeNOxEmsROgV1BU-fexQ",
+      "data_id": "0x6b12b1d37806ebb7:0x147b9f4f0575053a"
+    },
+    "title": "",
+    "body": "",
+    "url": "https://www.google.com/maps/place/?q=place_id:ChIJt-sGeNOxEmsROgV1BU-fexQ",
+    "metadata": {
+      "author": "Sabrina Wang",
+      "rating": 5.0,
+      "likes": 0,
+      "review_date": "4 minutes ago"
+    }
+  },
+  {
+    "id": "gmaps_3136905739802593956",
+    "source": "google_maps_reviews",
+    "publisher": "Google Maps",
+    "timestamp": "2026-03-04T07:20:20Z",
+    "query": {
+      "business_name": "Subway",
+      "location": "Sydney",
+      "category": "restaurant"
+    },
+    "business": {
+      "name": "Subway",
+      "address": "98/146 City Rd, Darlington NSW 2008, Australia",
+      "overall_rating": 4.8,
+      "total_reviews": 1509,
+      "place_id": "ChIJt-sGeNOxEmsROgV1BU-fexQ",
+      "data_id": "0x6b12b1d37806ebb7:0x147b9f4f0575053a"
+    },
+    "title": "",
+    "body": "Great service.........",
+    "url": "https://www.google.com/maps/place/?q=place_id:ChIJt-sGeNOxEmsROgV1BU-fexQ",
+    "metadata": {
+      "author": "Raj Patel",
+      "rating": 5.0,
+      "likes": 0,
+      "review_date": "5 minutes ago"
+    }
+  },
+  {
+    "id": "gmaps_3217757021399974377",
+    "source": "google_maps_reviews",
+    "publisher": "Google Maps",
+    "timestamp": "2026-03-04T07:08:15Z",
+    "query": {
+      "business_name": "Subway",
+      "location": "Sydney",
+      "category": "restaurant"
+    },
+    "business": {
+      "name": "Subway",
+      "address": "98/146 City Rd, Darlington NSW 2008, Australia",
+      "overall_rating": 4.8,
+      "total_reviews": 1509,
+      "place_id": "ChIJt-sGeNOxEmsROgV1BU-fexQ",
+      "data_id": "0x6b12b1d37806ebb7:0x147b9f4f0575053a"
+    },
+    "title": "",
+    "body": "i love subway",
+    "url": "https://www.google.com/maps/place/?q=place_id:ChIJt-sGeNOxEmsROgV1BU-fexQ",
+    "metadata": {
+      "author": "Maya Akhter",
+      "rating": 5.0,
+      "likes": 0,
+      "review_date": "17 minutes ago"
+    }
+  },
+  {
+    "id": "gmaps_5141693193542096529",
+    "source": "google_maps_reviews",
+    "publisher": "Google Maps",
+    "timestamp": "2026-03-04T07:07:48Z",
+    "query": {
+      "business_name": "Subway",
+      "location": "Sydney",
+      "category": "restaurant"
+    },
+    "business": {
+      "name": "Subway",
+      "address": "98/146 City Rd, Darlington NSW 2008, Australia",
+      "overall_rating": 4.8,
+      "total_reviews": 1509,
+      "place_id": "ChIJt-sGeNOxEmsROgV1BU-fexQ",
+      "data_id": "0x6b12b1d37806ebb7:0x147b9f4f0575053a"
+    },
+    "title": "",
+    "body": "AWESOME FOOD AND COOKIES",
+    "url": "https://www.google.com/maps/place/?q=place_id:ChIJt-sGeNOxEmsROgV1BU-fexQ",
+    "metadata": {
+      "author": "Ava Boyd",
+      "rating": 5.0,
+      "likes": 0,
+      "review_date": "18 minutes ago"
+    }
+  },
+  {
+    "id": "gmaps_3940668701894573393",
+    "source": "google_maps_reviews",
+    "publisher": "Google Maps",
+    "timestamp": "2026-03-04T06:51:03Z",
+    "query": {
+      "business_name": "Subway",
+      "location": "Sydney",
+      "category": "restaurant"
+    },
+    "business": {
+      "name": "Subway",
+      "address": "98/146 City Rd, Darlington NSW 2008, Australia",
+      "overall_rating": 4.8,
+      "total_reviews": 1509,
+      "place_id": "ChIJt-sGeNOxEmsROgV1BU-fexQ",
+      "data_id": "0x6b12b1d37806ebb7:0x147b9f4f0575053a"
+    },
+    "title": "",
+    "body": "",
+    "url": "https://www.google.com/maps/place/?q=place_id:ChIJt-sGeNOxEmsROgV1BU-fexQ",
+    "metadata": {
+      "author": "Sanatani Mangera",
+      "rating": 5.0,
+      "likes": 0,
+      "review_date": "34 minutes ago"
+    }
+  },
+  {
+    "id": "gmaps_106354313525503221",
+    "source": "google_maps_reviews",
+    "publisher": "Google Maps",
+    "timestamp": "2026-03-04T02:30:23Z",
+    "query": {
+      "business_name": "Subway",
+      "location": "Sydney",
+      "category": "restaurant"
+    },
+    "business": {
+      "name": "Subway",
+      "address": "98/146 City Rd, Darlington NSW 2008, Australia",
+      "overall_rating": 4.8,
+      "total_reviews": 1509,
+      "place_id": "ChIJt-sGeNOxEmsROgV1BU-fexQ",
+      "data_id": "0x6b12b1d37806ebb7:0x147b9f4f0575053a"
+    },
+    "title": "",
+    "body": "",
+    "url": "https://www.google.com/maps/place/?q=place_id:ChIJt-sGeNOxEmsROgV1BU-fexQ",
+    "metadata": {
+      "author": "O Phii",
+      "rating": 1.0,
+      "likes": 0,
+      "review_date": "4 hours ago"
+    }
+  },
+  {
+    "id": "gmaps_8373991234608906962",
+    "source": "google_maps_reviews",
+    "publisher": "Google Maps",
+    "timestamp": "2026-03-04T01:07:02Z",
+    "query": {
+      "business_name": "Subway",
+      "location": "Sydney",
+      "category": "restaurant"
+    },
+    "business": {
+      "name": "Subway",
+      "address": "98/146 City Rd, Darlington NSW 2008, Australia",
+      "overall_rating": 4.8,
+      "total_reviews": 1509,
+      "place_id": "ChIJt-sGeNOxEmsROgV1BU-fexQ",
+      "data_id": "0x6b12b1d37806ebb7:0x147b9f4f0575053a"
+    },
+    "title": "",
+    "body": "",
+    "url": "https://www.google.com/maps/place/?q=place_id:ChIJt-sGeNOxEmsROgV1BU-fexQ",
+    "metadata": {
+      "author": "Sofia Chiu",
+      "rating": 4.0,
+      "likes": 0,
+      "review_date": "6 hours ago"
+    }
+  },
+  {
+    "id": "gmaps_7376408301706285248",
+    "source": "google_maps_reviews",
+    "publisher": "Google Maps",
+    "timestamp": "2026-03-04T00:19:30Z",
+    "query": {
+      "business_name": "Subway",
+      "location": "Sydney",
+      "category": "restaurant"
+    },
+    "business": {
+      "name": "Subway",
+      "address": "98/146 City Rd, Darlington NSW 2008, Australia",
+      "overall_rating": 4.8,
+      "total_reviews": 1509,
+      "place_id": "ChIJt-sGeNOxEmsROgV1BU-fexQ",
+      "data_id": "0x6b12b1d37806ebb7:0x147b9f4f0575053a"
+    },
+    "title": "",
+    "body": "good",
+    "url": "https://www.google.com/maps/place/?q=place_id:ChIJt-sGeNOxEmsROgV1BU-fexQ",
+    "metadata": {
+      "author": "\u623f\u8fe6\u745c",
+      "rating": 5.0,
+      "likes": 0,
+      "review_date": "7 hours ago"
+    }
+  }
+]
