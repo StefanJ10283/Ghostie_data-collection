@@ -113,6 +113,95 @@ def collect_news(business_name: str, location: str, category: str, days_back: in
     return standardized
 
 
+def collect_news_reviews(business_name: str, location: str, category: str, days_back: int = MAX_DAYS_BACK):
+    """
+    Collect news articles that are critic/publication reviews of the business.
+    Same as collect_news() but targets review pieces specifically by including
+    "review" in the query, and tags results with source="news_review".
+
+    Returns:
+        List of standardized article dicts (source = "news_review")
+    """
+
+    days_back = min(days_back, MAX_DAYS_BACK)
+    date_from = (datetime.now() - timedelta(days=days_back)).strftime("%Y-%m-%d")
+    date_to   = datetime.now().strftime("%Y-%m-%d")
+
+    query = f'"{business_name}" AND "{category}" AND "review"'
+
+    params = {
+        "q":        query,
+        "from":     date_from,
+        "to":       date_to,
+        "language": "en",
+        "sortBy":   "relevancy",
+        "pageSize": 100,
+        "apiKey":   API_KEY,
+    }
+
+    print(f"\n Searching news reviews for: '{business_name}'")
+    print(f"   Location : {location}")
+    print(f"   Category : {category}")
+    print(f"   Query    : {query}")
+    print(f"   Dates    : {date_from} to {date_to}\n")
+
+    response = requests.get(BASE_URL, params=params, timeout=30)
+
+    if response.status_code == 426:
+        print("  Plan limit hit on date range. Adjusting start date by +1 day and retrying...\n")
+        new_from = (datetime.strptime(date_from, "%Y-%m-%d") + timedelta(days=1)).strftime("%Y-%m-%d")
+        params["from"] = new_from
+        response = requests.get(BASE_URL, params=params, timeout=30)
+
+    if response.status_code != 200:
+        try:
+            msg = response.json().get("message", "Unknown error")
+        except Exception:
+            msg = response.text
+        print(f"  NewsAPI error {response.status_code}: {msg}")
+        return []
+
+    data         = response.json()
+    raw_articles = data.get("articles", [])
+    total        = data.get("totalResults", 0)
+    print(f"  NewsAPI returned {total} total results, fetched top {len(raw_articles)}")
+
+    def is_relevant(article: dict) -> bool:
+        title = article.get("title") or ""
+        desc  = article.get("description") or ""
+        combined = (title + " " + desc).lower()
+        return business_name.lower() in combined
+
+    relevant = [a for a in raw_articles if is_relevant(a)]
+    print(f"  After relevance filter: {len(relevant)} news reviews kept, {len(raw_articles) - len(relevant)} removed\n")
+
+    if not relevant:
+        print("  No relevant news reviews found.")
+        return []
+
+    standardized = []
+    for article in relevant:
+        standardized.append({
+            "id":        f"newsreview_{abs(hash(article.get('url', '')))}",
+            "source":    "news_review",
+            "publisher": article.get("source", {}).get("name", "Unknown"),
+            "timestamp": article.get("publishedAt", ""),
+            "query": {
+                "business_name": business_name,
+                "location":      location,
+                "category":      category,
+            },
+            "title": article.get("title", ""),
+            "body":  article.get("description", ""),
+            "url":   article.get("url", ""),
+            "metadata": {
+                "author": article.get("author", ""),
+            },
+        })
+
+    return standardized
+
+
 # ── CLI entry point ──────────────────────────────────────────────────────────
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Collect news articles for a hospitality business.")

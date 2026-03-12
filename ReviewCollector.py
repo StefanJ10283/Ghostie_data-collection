@@ -120,6 +120,7 @@ def collect_reviews(business_name: str, location: str, category: str, max_review
             "title": "",
             "body":  review.get("snippet", ""),
             "url":   f"https://www.google.com/maps/place/?q=place_id:{place_id}",
+            "data_type": "score_only" if not review.get("snippet") else "text_review",
             "metadata": {
                 "author":      review.get("user", {}).get("name", "Anonymous"),
                 "rating":      review.get("rating", None),

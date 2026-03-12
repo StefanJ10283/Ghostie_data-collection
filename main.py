@@ -6,7 +6,7 @@ import os
 import re
 
 # Import our collectors
-from NewsCollector import collect_news
+from NewsCollector import collect_news, collect_news_reviews
 from ReviewCollector import collect_reviews
 
 # ── Local storage folder ─────────────────────────────────────────────────────
@@ -67,7 +67,9 @@ class CollectResponse(BaseModel):
     collected_at: str
     total_results: int
     news_count: int
+    news_review_count: int
     review_count: int
+    score_only_count: int
     saved_to: str        # local filepath (will become S3 key later)
     data: list
 
@@ -111,7 +113,9 @@ def collect(request: CollectRequest):
     Collect news articles and customer reviews for a hospitality business.
 
     - Calls NewsAPI to get recent news articles mentioning the business
+    - Calls NewsAPI again with "review" in the query to get critic/publication reviews
     - Calls SerpAPI Google Maps Reviews to get real customer reviews with star ratings
+      (reviews with no text body are tagged data_type="score_only")
     - Saves combined results to a local JSON file (will be S3 once infrastructure is ready)
     - Returns combined results in a standardized format for downstream processing
     """
@@ -129,10 +133,11 @@ def collect(request: CollectRequest):
 
     print(f"\n[{datetime.utcnow().isoformat()}] Collect request: {business_name} | {location} | {category}")
 
-    # ── Collect from both sources ────────────────────────────────────────────
-    news_results   = []
-    review_results = []
-    errors         = []
+    # ── Collect from all sources ─────────────────────────────────────────────
+    news_results        = []
+    news_review_results = []
+    review_results      = []
+    errors              = []
 
     try:
         print("  Fetching news articles...")
@@ -143,6 +148,14 @@ def collect(request: CollectRequest):
         print(f"  NewsAPI failed: {e}")
 
     try:
+        print("  Fetching news reviews (critic/publication reviews)...")
+        news_review_results = collect_news_reviews(business_name, location, category)
+        print(f"  Got {len(news_review_results)} news reviews")
+    except Exception as e:
+        errors.append(f"NewsAPI reviews error: {str(e)}")
+        print(f"  NewsAPI reviews failed: {e}")
+
+    try:
         print("  Fetching Google Maps reviews...")
         review_results = collect_reviews(business_name, location, category)
         print(f"  Got {len(review_results)} reviews")
@@ -151,7 +164,7 @@ def collect(request: CollectRequest):
         print(f"  SerpAPI failed: {e}")
 
     # ── Combine results ──────────────────────────────────────────────────────
-    combined = news_results + review_results
+    combined = news_results + news_review_results + review_results
 
     if not combined:
         raise HTTPException(
@@ -159,16 +172,20 @@ def collect(request: CollectRequest):
             detail=f"No data found for '{business_name}' in '{location}'. Errors: {errors}"
         )
 
+    score_only_count = sum(1 for r in review_results if r.get("data_type") == "score_only")
+
     # ── Build response payload ───────────────────────────────────────────────
     payload = {
-        "business_name": business_name,
-        "location":      location,
-        "category":      category,
-        "collected_at":  datetime.utcnow().isoformat(),
-        "total_results": len(combined),
-        "news_count":    len(news_results),
-        "review_count":  len(review_results),
-        "data":          combined,
+        "business_name":    business_name,
+        "location":         location,
+        "category":         category,
+        "collected_at":     datetime.utcnow().isoformat(),
+        "total_results":    len(combined),
+        "news_count":       len(news_results),
+        "news_review_count": len(news_review_results),
+        "review_count":     len(review_results),
+        "score_only_count": score_only_count,
+        "data":             combined,
     }
 
     # ── Save locally ─────────────────────────────────────────────────────────
