@@ -1,0 +1,371 @@
+{
+  "business_name": "Subway",
+  "location": "Sydney",
+  "category": "restaurant",
+  "collected_at": "2026-03-05T08:25:45.266741",
+  "total_results": 16,
+  "news_count": 8,
+  "review_count": 8,
+  "data": [
+    {
+      "id": "news_3820958370916495802",
+      "source": "newsapi",
+      "publisher": "Slickdeals.net",
+      "timestamp": "2026-02-06T21:43:35Z",
+      "query": {
+        "business_name": "Subway",
+        "location": "Sydney",
+        "category": "restaurant"
+      },
+      "title": "Select Subway Restaurants: Two 6\" Subs $6 (Valid Feb 6 Only)",
+      "body": "Select Subway Restaurants [Restaurant Locator] are offering Sub Club Members (free to join): Two 6\" Subs for $6 when you apply promo code 2626PROMO in cart when ordering online or via the Subway",
+      "url": "https://slickdeals.net/f/19170280-select-subway-restaurants-two-6-subs-6-valid-feb-6-only",
+      "metadata": {
+        "author": "worldofcolor"
+      }
+    },
+    {
+      "id": "news_500354943507132834",
+      "source": "newsapi",
+      "publisher": "New York Post",
+      "timestamp": "2026-02-26T23:13:19Z",
+      "query": {
+        "business_name": "Subway",
+        "location": "Sydney",
+        "category": "restaurant"
+      },
+      "title": "Ad-weary New Yorkers school MTA on \u2018annoying\u2019 75-decibel subway commercials",
+      "body": "New York City subway riders aren't sold on the MTA's new pilot program to pipe loud commercials into subway cars and commuter trains.",
+      "url": "https://nypost.com/2026/02/26/us-news/ad-weary-new-yorkers-school-mta-on-annoying-75-decibel-subway-commercials/",
+      "metadata": {
+        "author": "Haley Brown, Jorge Fitz-Gibbon"
+      }
+    },
+    {
+      "id": "news_2604910603001249062",
+      "source": "newsapi",
+      "publisher": "Autostraddle.com",
+      "timestamp": "2026-02-21T15:31:55Z",
+      "query": {
+        "business_name": "Subway",
+        "location": "Sydney",
+        "category": "restaurant"
+      },
+      "title": "Things I Read That I Love #348: Food Delivery, Sizing, Bushwick, Agentic Tech Bros, Dog Shows and More",
+      "body": "The wealthy Los Angeles couple who obtained dozens of children through surrogates, Snow White's Scary Adventures, Gen Alpha's bedrooms, WOOFing, the evolution of women's clothing sizing, that lesbian couple on the subway, the popularity of food delivery, dog \u2026",
+      "url": "http://www.autostraddle.com/things-i-read-that-i-love-348/",
+      "metadata": {
+        "author": "Riese"
+      }
+    },
+    {
+      "id": "news_6441351035160788705",
+      "source": "newsapi",
+      "publisher": "Eater",
+      "timestamp": "2026-02-11T01:20:34Z",
+      "query": {
+        "business_name": "Subway",
+        "location": "Sydney",
+        "category": "restaurant"
+      },
+      "title": "B-Side Foods Is the Quintessential Capitol Hill Cafe",
+      "body": "Tucked away inside Analog Coffee, B-Side Foods is a local cult favorite thanks to a rare alchemy of vibes and substance. Pastel subway tiles, cheerful strings of Christmas lights, a turntable spinning carefully curated tunes, and a compact menu of tidily exec\u2026",
+      "url": "https://seattle.eater.com/dining-report/90151/b-side-foods-review",
+      "metadata": {
+        "author": "Sophie Grossman"
+      }
+    },
+    {
+      "id": "news_5334666204064423731",
+      "source": "newsapi",
+      "publisher": "Homedit.com",
+      "timestamp": "2026-02-25T07:55:54Z",
+      "query": {
+        "business_name": "Subway",
+        "location": "Sydney",
+        "category": "restaurant"
+      },
+      "title": "15 Kitchen Ideas for 2026 That Make the All-White Shaker Look Like a Cheap Flip",
+      "body": "For the last ten years, the default kitchen design was practically a template: white shaker cabinets, a white quartz countertop, and a white subway tile backsplash. I\u2019ve installed it, recommended it, and lived with it. But going into 2026, that hyper-sanitize\u2026",
+      "url": "https://www.homedit.com/kitchen-ideas-for-2026-that-make-the-all-white-shaker-look-like-a-cheap-flip/",
+      "metadata": {
+        "author": "Stefan Gheorghe"
+      }
+    },
+    {
+      "id": "news_288480171352659889",
+      "source": "newsapi",
+      "publisher": "The Times of India",
+      "timestamp": "2026-02-12T17:49:33Z",
+      "query": {
+        "business_name": "Subway",
+        "location": "Sydney",
+        "category": "restaurant"
+      },
+      "title": "Playbook Partners buys 5% in Subway India for Rs 130 crore",
+      "body": "Playbook Partners India has bought a stake in Subway India. The deal values the quick-service restaurant chain at over '2,600 crore. Subway India operates more than 1,000 outlets nationwide. This investment comes as Subway India considers a public listing. Se\u2026",
+      "url": "https://economictimes.indiatimes.com/industry/services/hotels-/-restaurants/playbook-partners-buys-5-in-subway-india-for-rs-130-crore/articleshow/128270174.cms",
+      "metadata": {
+        "author": "Reghu Balakrishnan and Ratna Bhushan"
+      }
+    },
+    {
+      "id": "news_4779150029882437628",
+      "source": "newsapi",
+      "publisher": "Time Out",
+      "timestamp": "2026-02-23T14:05:32Z",
+      "query": {
+        "business_name": "Subway",
+        "location": "Sydney",
+        "category": "restaurant"
+      },
+      "title": "NYC is under a travel ban until noon: here is what that actually means",
+      "body": "All non-emergency vehicles are asked to stay off the road until this afternoon, at the very least. The LIRR is suspended and the subway is operating on massive delays.",
+      "url": "https://www.timeout.com/newyork/news/nyc-is-under-a-travel-ban-until-noon-here-is-what-that-actually-means-022326",
+      "metadata": {
+        "author": "Primary Author: Anna Rahmanan"
+      }
+    },
+    {
+      "id": "news_864559872257056854",
+      "source": "newsapi",
+      "publisher": "Fox News",
+      "timestamp": "2026-02-24T01:01:05Z",
+      "query": {
+        "business_name": "Subway",
+        "location": "Sydney",
+        "category": "restaurant"
+      },
+      "title": "Subway scraps its free sandwich perk just months after relaunch, sparks customer revolt: 'Cheapskates'",
+      "body": "Two months after relaunching its Sub Club, Subway is eliminating the free fourth footlong offer starting April 1. Franchisees pushed for the program revision.",
+      "url": "https://www.foxnews.com/food-drink/subway-scraps-free-sandwich-perk-months-relaunch-sparks-customer-revolt-cheapskates",
+      "metadata": {
+        "author": null
+      }
+    },
+    {
+      "id": "gmaps_9126753603767102031",
+      "source": "google_maps_reviews",
+      "publisher": "Google Maps",
+      "timestamp": "2026-03-05T06:43:17Z",
+      "query": {
+        "business_name": "Subway",
+        "location": "Sydney",
+        "category": "restaurant"
+      },
+      "business": {
+        "name": "Subway",
+        "address": "98/146 City Rd, Darlington NSW 2008, Australia",
+        "overall_rating": 4.8,
+        "total_reviews": 1537,
+        "place_id": "ChIJt-sGeNOxEmsROgV1BU-fexQ",
+        "data_id": "0x6b12b1d37806ebb7:0x147b9f4f0575053a"
+      },
+      "title": "",
+      "body": "I went to subway before and the experience beyond horrific. The food was incredibly salty, it tasted as if they had just emptied out the salt can onto it. Ontop of this, I didn\u2019t even order the extra salt option, and I think that anyone who ever considers this should rethink their choices. The service was garbage, there was an Indian employee who, I\u2019m not attempting to single out because of race, but rather becsuse she was so unbelievably rude. I am flabbergasted at the fact she decided to talk rudely to her manager about me and tell me to go to the pickup station (there is no sign). I came in with my order number, and she went to check for the order, came back with a Chinese person\u2019s order and then asked if it was mine, despite the fact I SHOWED her my name. Most times, I would\u2019ve let it go, however she not only racially assumed me once, BUT TWICE, because after she asked for my name, I showed her again and she elft for a while and came back and said \u201care you sure this isn\u2019t your order?\u201d Showing me the exact same Chinese persons order. This is more than disgusting and I strongly recommend nobody come to this subway. Never again.",
+      "url": "https://www.google.com/maps/place/?q=place_id:ChIJt-sGeNOxEmsROgV1BU-fexQ",
+      "metadata": {
+        "author": "IPlayRoblox",
+        "rating": 1.0,
+        "likes": 0,
+        "review_date": "an hour ago"
+      }
+    },
+    {
+      "id": "gmaps_2677251430943903339",
+      "source": "google_maps_reviews",
+      "publisher": "Google Maps",
+      "timestamp": "2026-03-05T05:19:46Z",
+      "query": {
+        "business_name": "Subway",
+        "location": "Sydney",
+        "category": "restaurant"
+      },
+      "business": {
+        "name": "Subway",
+        "address": "98/146 City Rd, Darlington NSW 2008, Australia",
+        "overall_rating": 4.8,
+        "total_reviews": 1537,
+        "place_id": "ChIJt-sGeNOxEmsROgV1BU-fexQ",
+        "data_id": "0x6b12b1d37806ebb7:0x147b9f4f0575053a"
+      },
+      "title": "",
+      "body": "",
+      "url": "https://www.google.com/maps/place/?q=place_id:ChIJt-sGeNOxEmsROgV1BU-fexQ",
+      "metadata": {
+        "author": "Isabelle Marenghi",
+        "rating": 5.0,
+        "likes": 0,
+        "review_date": "3 hours ago"
+      }
+    },
+    {
+      "id": "gmaps_4586064659754207403",
+      "source": "google_maps_reviews",
+      "publisher": "Google Maps",
+      "timestamp": "2026-02-19T02:29:11Z",
+      "query": {
+        "business_name": "Subway",
+        "location": "Sydney",
+        "category": "restaurant"
+      },
+      "business": {
+        "name": "Subway",
+        "address": "98/146 City Rd, Darlington NSW 2008, Australia",
+        "overall_rating": 4.8,
+        "total_reviews": 1537,
+        "place_id": "ChIJt-sGeNOxEmsROgV1BU-fexQ",
+        "data_id": "0x6b12b1d37806ebb7:0x147b9f4f0575053a"
+      },
+      "title": "",
+      "body": "Good service and nice atmosphere",
+      "url": "https://www.google.com/maps/place/?q=place_id:ChIJt-sGeNOxEmsROgV1BU-fexQ",
+      "metadata": {
+        "author": "eva tong",
+        "rating": 5.0,
+        "likes": 0,
+        "review_date": "Edited 3 hours ago"
+      }
+    },
+    {
+      "id": "gmaps_370511326707137878",
+      "source": "google_maps_reviews",
+      "publisher": "Google Maps",
+      "timestamp": "2026-03-05T04:36:11Z",
+      "query": {
+        "business_name": "Subway",
+        "location": "Sydney",
+        "category": "restaurant"
+      },
+      "business": {
+        "name": "Subway",
+        "address": "98/146 City Rd, Darlington NSW 2008, Australia",
+        "overall_rating": 4.8,
+        "total_reviews": 1537,
+        "place_id": "ChIJt-sGeNOxEmsROgV1BU-fexQ",
+        "data_id": "0x6b12b1d37806ebb7:0x147b9f4f0575053a"
+      },
+      "title": "",
+      "body": "Excellent and fast service",
+      "url": "https://www.google.com/maps/place/?q=place_id:ChIJt-sGeNOxEmsROgV1BU-fexQ",
+      "metadata": {
+        "author": "manas gadkari",
+        "rating": 4.0,
+        "likes": 0,
+        "review_date": "3 hours ago"
+      }
+    },
+    {
+      "id": "gmaps_8460968491706666710",
+      "source": "google_maps_reviews",
+      "publisher": "Google Maps",
+      "timestamp": "2026-03-05T04:32:21Z",
+      "query": {
+        "business_name": "Subway",
+        "location": "Sydney",
+        "category": "restaurant"
+      },
+      "business": {
+        "name": "Subway",
+        "address": "98/146 City Rd, Darlington NSW 2008, Australia",
+        "overall_rating": 4.8,
+        "total_reviews": 1537,
+        "place_id": "ChIJt-sGeNOxEmsROgV1BU-fexQ",
+        "data_id": "0x6b12b1d37806ebb7:0x147b9f4f0575053a"
+      },
+      "title": "",
+      "body": "Best subway!!",
+      "url": "https://www.google.com/maps/place/?q=place_id:ChIJt-sGeNOxEmsROgV1BU-fexQ",
+      "metadata": {
+        "author": "Veronica Chor",
+        "rating": 5.0,
+        "likes": 0,
+        "review_date": "3 hours ago"
+      }
+    },
+    {
+      "id": "gmaps_4184454536120382469",
+      "source": "google_maps_reviews",
+      "publisher": "Google Maps",
+      "timestamp": "2026-03-05T04:27:10Z",
+      "query": {
+        "business_name": "Subway",
+        "location": "Sydney",
+        "category": "restaurant"
+      },
+      "business": {
+        "name": "Subway",
+        "address": "98/146 City Rd, Darlington NSW 2008, Australia",
+        "overall_rating": 4.8,
+        "total_reviews": 1537,
+        "place_id": "ChIJt-sGeNOxEmsROgV1BU-fexQ",
+        "data_id": "0x6b12b1d37806ebb7:0x147b9f4f0575053a"
+      },
+      "title": "",
+      "body": "Great speed and fresh ingredients",
+      "url": "https://www.google.com/maps/place/?q=place_id:ChIJt-sGeNOxEmsROgV1BU-fexQ",
+      "metadata": {
+        "author": "Jami",
+        "rating": 5.0,
+        "likes": 0,
+        "review_date": "3 hours ago"
+      }
+    },
+    {
+      "id": "gmaps_1462911309444806192",
+      "source": "google_maps_reviews",
+      "publisher": "Google Maps",
+      "timestamp": "2026-03-05T04:17:44Z",
+      "query": {
+        "business_name": "Subway",
+        "location": "Sydney",
+        "category": "restaurant"
+      },
+      "business": {
+        "name": "Subway",
+        "address": "98/146 City Rd, Darlington NSW 2008, Australia",
+        "overall_rating": 4.8,
+        "total_reviews": 1537,
+        "place_id": "ChIJt-sGeNOxEmsROgV1BU-fexQ",
+        "data_id": "0x6b12b1d37806ebb7:0x147b9f4f0575053a"
+      },
+      "title": "",
+      "body": "Great for lunch!!",
+      "url": "https://www.google.com/maps/place/?q=place_id:ChIJt-sGeNOxEmsROgV1BU-fexQ",
+      "metadata": {
+        "author": "Seorin Park",
+        "rating": 5.0,
+        "likes": 0,
+        "review_date": "4 hours ago"
+      }
+    },
+    {
+      "id": "gmaps_1980659157255440764",
+      "source": "google_maps_reviews",
+      "publisher": "Google Maps",
+      "timestamp": "2026-03-05T04:16:51Z",
+      "query": {
+        "business_name": "Subway",
+        "location": "Sydney",
+        "category": "restaurant"
+      },
+      "business": {
+        "name": "Subway",
+        "address": "98/146 City Rd, Darlington NSW 2008, Australia",
+        "overall_rating": 4.8,
+        "total_reviews": 1537,
+        "place_id": "ChIJt-sGeNOxEmsROgV1BU-fexQ",
+        "data_id": "0x6b12b1d37806ebb7:0x147b9f4f0575053a"
+      },
+      "title": "",
+      "body": "very good",
+      "url": "https://www.google.com/maps/place/?q=place_id:ChIJt-sGeNOxEmsROgV1BU-fexQ",
+      "metadata": {
+        "author": "Anthony Bernardo",
+        "rating": 5.0,
+        "likes": 0,
+        "review_date": "4 hours ago"
+      }
+    }
+  ]
+}

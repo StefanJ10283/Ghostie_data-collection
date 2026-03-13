@@ -1,0 +1,279 @@
+{
+  "business_name": "McDonalds",
+  "location": "Sydney",
+  "category": "restaurant",
+  "collected_at": "2026-03-12T04:20:15.888161",
+  "total_results": 10,
+  "news_count": 2,
+  "news_review_count": 0,
+  "review_count": 8,
+  "score_only_count": 3,
+  "data": [
+    {
+      "id": "news_931568661405428860",
+      "source": "newsapi",
+      "publisher": "Inside the Magic",
+      "timestamp": "2026-02-17T17:07:55Z",
+      "query": {
+        "business_name": "McDonalds",
+        "location": "Sydney",
+        "category": "restaurant"
+      },
+      "title": "Disney Backpedals on McDonalds: Drops Surprise Announcement",
+      "body": "McDonald\u2019s has revealed a new location with Disney, cementing its legacy within the House of Mouse. McDonald\u2019s and Disney Just Did the Unthinkable There\u2019s something undeniably comforting about the familiar rituals of a Disney day. Whether you\u2019re strolling thr\u2026",
+      "url": "https://insidethemagic.net/2026/02/disney-mcdonalds-resort-village-emd1/",
+      "metadata": {
+        "author": "Emmanuel Detres"
+      }
+    },
+    {
+      "id": "news_6647236658969121759",
+      "source": "newsapi",
+      "publisher": "New York Post",
+      "timestamp": "2026-03-09T22:09:55Z",
+      "query": {
+        "business_name": "McDonalds",
+        "location": "Sydney",
+        "category": "restaurant"
+      },
+      "title": "Disgusting video shows huge rats scampering across floor at McDonald\u2019s inside Walmart",
+      "body": "There were three of them at the McDonalds located in Dinuba, California inside a Walmart Supercenter.",
+      "url": "https://nypost.com/2026/03/09/us-news/huge-rats-invade-a-mcdonalds-inside-a-walmart/",
+      "metadata": {
+        "author": "Jeremy Louwerse"
+      }
+    },
+    {
+      "id": "gmaps_8495281267334218576",
+      "source": "google_maps_reviews",
+      "publisher": "Google Maps",
+      "timestamp": "2026-03-10T10:41:30Z",
+      "query": {
+        "business_name": "McDonalds",
+        "location": "Sydney",
+        "category": "restaurant"
+      },
+      "business": {
+        "name": "McDonald's Plaza Metro George St",
+        "address": "600 George St, Sydney NSW 2000, Australia",
+        "overall_rating": 3.6,
+        "total_reviews": 3569,
+        "place_id": "ChIJ2fYBWjyuEmsR2jTFaL64TNc",
+        "data_id": "0x6b12ae3c5a01f6d9:0xd74cb8be68c534da"
+      },
+      "title": "",
+      "body": "Basically, I ate reasonably at a discounted price at McDonald's, but the seating area was a bit dirty, but the staff kindly gave me a napkin, which was a nice service.",
+      "url": "https://www.google.com/maps/place/?q=place_id:ChIJ2fYBWjyuEmsR2jTFaL64TNc",
+      "data_type": "text_review",
+      "metadata": {
+        "author": "Alice Lee",
+        "rating": 4.0,
+        "likes": 0,
+        "review_date": "a day ago"
+      }
+    },
+    {
+      "id": "gmaps_2250961423035160003",
+      "source": "google_maps_reviews",
+      "publisher": "Google Maps",
+      "timestamp": "2026-03-09T21:51:19Z",
+      "query": {
+        "business_name": "McDonalds",
+        "location": "Sydney",
+        "category": "restaurant"
+      },
+      "business": {
+        "name": "McDonald's Plaza Metro George St",
+        "address": "600 George St, Sydney NSW 2000, Australia",
+        "overall_rating": 3.6,
+        "total_reviews": 3569,
+        "place_id": "ChIJ2fYBWjyuEmsR2jTFaL64TNc",
+        "data_id": "0x6b12ae3c5a01f6d9:0xd74cb8be68c534da"
+      },
+      "title": "",
+      "body": "Decent McDonald\u2019s for a late night bite. The orders are quickly prepared, which is always nice for fast food.",
+      "url": "https://www.google.com/maps/place/?q=place_id:ChIJ2fYBWjyuEmsR2jTFaL64TNc",
+      "data_type": "text_review",
+      "metadata": {
+        "author": "Edmond T",
+        "rating": 5.0,
+        "likes": 0,
+        "review_date": "2 days ago"
+      }
+    },
+    {
+      "id": "gmaps_7541290599876500699",
+      "source": "google_maps_reviews",
+      "publisher": "Google Maps",
+      "timestamp": "2026-03-06T04:23:05Z",
+      "query": {
+        "business_name": "McDonalds",
+        "location": "Sydney",
+        "category": "restaurant"
+      },
+      "business": {
+        "name": "McDonald's Plaza Metro George St",
+        "address": "600 George St, Sydney NSW 2000, Australia",
+        "overall_rating": 3.6,
+        "total_reviews": 3569,
+        "place_id": "ChIJ2fYBWjyuEmsR2jTFaL64TNc",
+        "data_id": "0x6b12ae3c5a01f6d9:0xd74cb8be68c534da"
+      },
+      "title": "",
+      "body": "",
+      "url": "https://www.google.com/maps/place/?q=place_id:ChIJ2fYBWjyuEmsR2jTFaL64TNc",
+      "data_type": "score_only",
+      "metadata": {
+        "author": "Nikhil Razdan",
+        "rating": 4.0,
+        "likes": 0,
+        "review_date": "6 days ago"
+      }
+    },
+    {
+      "id": "gmaps_8759099291709811825",
+      "source": "google_maps_reviews",
+      "publisher": "Google Maps",
+      "timestamp": "2026-03-03T10:02:37Z",
+      "query": {
+        "business_name": "McDonalds",
+        "location": "Sydney",
+        "category": "restaurant"
+      },
+      "business": {
+        "name": "McDonald's Plaza Metro George St",
+        "address": "600 George St, Sydney NSW 2000, Australia",
+        "overall_rating": 3.6,
+        "total_reviews": 3569,
+        "place_id": "ChIJ2fYBWjyuEmsR2jTFaL64TNc",
+        "data_id": "0x6b12ae3c5a01f6d9:0xd74cb8be68c534da"
+      },
+      "title": "",
+      "body": "pretty place!!",
+      "url": "https://www.google.com/maps/place/?q=place_id:ChIJ2fYBWjyuEmsR2jTFaL64TNc",
+      "data_type": "text_review",
+      "metadata": {
+        "author": "Elise da Silva",
+        "rating": 4.0,
+        "likes": 0,
+        "review_date": "a week ago"
+      }
+    },
+    {
+      "id": "gmaps_1571176889790259835",
+      "source": "google_maps_reviews",
+      "publisher": "Google Maps",
+      "timestamp": "2026-03-02T06:07:56Z",
+      "query": {
+        "business_name": "McDonalds",
+        "location": "Sydney",
+        "category": "restaurant"
+      },
+      "business": {
+        "name": "McDonald's Plaza Metro George St",
+        "address": "600 George St, Sydney NSW 2000, Australia",
+        "overall_rating": 3.6,
+        "total_reviews": 3569,
+        "place_id": "ChIJ2fYBWjyuEmsR2jTFaL64TNc",
+        "data_id": "0x6b12ae3c5a01f6d9:0xd74cb8be68c534da"
+      },
+      "title": "",
+      "body": "Service was okay, but trying to eat in the front section was a constant battle swatting away flies.",
+      "url": "https://www.google.com/maps/place/?q=place_id:ChIJ2fYBWjyuEmsR2jTFaL64TNc",
+      "data_type": "text_review",
+      "metadata": {
+        "author": "Matt",
+        "rating": 3.0,
+        "likes": 0,
+        "review_date": "a week ago"
+      }
+    },
+    {
+      "id": "gmaps_7470816337945054647",
+      "source": "google_maps_reviews",
+      "publisher": "Google Maps",
+      "timestamp": "2026-03-01T08:37:44Z",
+      "query": {
+        "business_name": "McDonalds",
+        "location": "Sydney",
+        "category": "restaurant"
+      },
+      "business": {
+        "name": "McDonald's Plaza Metro George St",
+        "address": "600 George St, Sydney NSW 2000, Australia",
+        "overall_rating": 3.6,
+        "total_reviews": 3569,
+        "place_id": "ChIJ2fYBWjyuEmsR2jTFaL64TNc",
+        "data_id": "0x6b12ae3c5a01f6d9:0xd74cb8be68c534da"
+      },
+      "title": "",
+      "body": "",
+      "url": "https://www.google.com/maps/place/?q=place_id:ChIJ2fYBWjyuEmsR2jTFaL64TNc",
+      "data_type": "score_only",
+      "metadata": {
+        "author": "Ricky Chi",
+        "rating": 4.0,
+        "likes": 0,
+        "review_date": "a week ago"
+      }
+    },
+    {
+      "id": "gmaps_8519411575995341934",
+      "source": "google_maps_reviews",
+      "publisher": "Google Maps",
+      "timestamp": "2026-02-27T23:14:44Z",
+      "query": {
+        "business_name": "McDonalds",
+        "location": "Sydney",
+        "category": "restaurant"
+      },
+      "business": {
+        "name": "McDonald's Plaza Metro George St",
+        "address": "600 George St, Sydney NSW 2000, Australia",
+        "overall_rating": 3.6,
+        "total_reviews": 3569,
+        "place_id": "ChIJ2fYBWjyuEmsR2jTFaL64TNc",
+        "data_id": "0x6b12ae3c5a01f6d9:0xd74cb8be68c534da"
+      },
+      "title": "",
+      "body": "",
+      "url": "https://www.google.com/maps/place/?q=place_id:ChIJ2fYBWjyuEmsR2jTFaL64TNc",
+      "data_type": "score_only",
+      "metadata": {
+        "author": "Pooja Bohara",
+        "rating": 4.0,
+        "likes": 0,
+        "review_date": "a week ago"
+      }
+    },
+    {
+      "id": "gmaps_4982544852465470002",
+      "source": "google_maps_reviews",
+      "publisher": "Google Maps",
+      "timestamp": "2026-02-26T12:21:38Z",
+      "query": {
+        "business_name": "McDonalds",
+        "location": "Sydney",
+        "category": "restaurant"
+      },
+      "business": {
+        "name": "McDonald's Plaza Metro George St",
+        "address": "600 George St, Sydney NSW 2000, Australia",
+        "overall_rating": 3.6,
+        "total_reviews": 3569,
+        "place_id": "ChIJ2fYBWjyuEmsR2jTFaL64TNc",
+        "data_id": "0x6b12ae3c5a01f6d9:0xd74cb8be68c534da"
+      },
+      "title": "",
+      "body": "No glutenfree bread :(",
+      "url": "https://www.google.com/maps/place/?q=place_id:ChIJ2fYBWjyuEmsR2jTFaL64TNc",
+      "data_type": "text_review",
+      "metadata": {
+        "author": "Ken H",
+        "rating": 1.0,
+        "likes": 0,
+        "review_date": "a week ago"
+      }
+    }
+  ]
+}

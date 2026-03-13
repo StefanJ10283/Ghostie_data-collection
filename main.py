@@ -2,8 +2,11 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from datetime import datetime
 import json
+import logging
 import os
 import re
+
+import requests as http_requests
 
 # Import our collectors
 from NewsCollector import collect_news, collect_news_reviews
@@ -33,6 +36,38 @@ def save_locally(data: dict) -> str:
         json.dump(data, f, indent=2)
 
     return filepath
+
+
+RETRIEVAL_API_URL = "http://localhost:8001/store"
+
+
+def post_to_retrieval_api(payload: dict) -> None:
+    """
+    POST collected data to the Retrieval API's /store endpoint.
+    Logs a warning on failure but never raises — local file saving is unaffected.
+    """
+    body = {
+        "business_name": payload["business_name"],
+        "location":      payload["location"],
+        "category":      payload["category"],
+        "collected_at":  payload["collected_at"],
+        "news_count":    payload["news_count"],
+        "review_count":  payload["review_count"],
+        "data":          payload["data"],
+    }
+
+    try:
+        response = http_requests.post(RETRIEVAL_API_URL, json=body, timeout=10)
+        if response.status_code < 200 or response.status_code >= 300:
+            logging.warning(
+                "Retrieval API /store returned %s: %s",
+                response.status_code,
+                response.text[:200],
+            )
+        else:
+            print(f"  Posted to Retrieval API: {response.status_code}")
+    except Exception as exc:
+        logging.warning("Failed to POST to Retrieval API: %s", exc)
 
 
 # ── App ──────────────────────────────────────────────────────────────────────
@@ -194,6 +229,10 @@ def collect(request: CollectRequest):
     print(f"  Saved to: {filepath}")
 
     payload["saved_to"] = filepath
+
+    # ── POST to Retrieval API ────────────────────────────────────────────────
+    post_to_retrieval_api(payload)
+
     return payload
 
 
