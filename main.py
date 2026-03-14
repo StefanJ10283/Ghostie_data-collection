@@ -1,4 +1,5 @@
 from fastapi import FastAPI, HTTPException
+from mangum import Mangum
 from pydantic import BaseModel
 from datetime import datetime
 import json
@@ -234,6 +235,10 @@ def collect(request: CollectRequest):
     post_to_retrieval_api(payload)
 
     return payload
+
+
+# ── Lambda handler (Mangum wraps FastAPI for AWS Lambda) ─────────────────────
+handler = Mangum(app)
 
 
 # ── Run locally ──────────────────────────────────────────────────────────────
