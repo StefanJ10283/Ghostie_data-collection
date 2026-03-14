@@ -39,7 +39,7 @@ def save_locally(data: dict) -> str:
     return filepath
 
 
-RETRIEVAL_API_URL = "https://8dwmeuc3b1.execute-api.ap-southeast-2.amazonaws.com/store"
+RETRIEVAL_API_URL = "https://8dwmeuc3b1.execute-api.ap-southeast-2.amazonaws.com/Prod/store"
 
 
 def post_to_retrieval_api(payload: dict) -> None:
