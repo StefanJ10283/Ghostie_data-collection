@@ -73,10 +73,16 @@ def post_to_retrieval_api(payload: dict) -> None:
 
 # ── App ──────────────────────────────────────────────────────────────────────
 
+# When deployed on AWS Lambda behind API Gateway, the stage name (/Prod) is
+# prepended to every path. FastAPI must know this so Swagger UI requests
+# /Prod/openapi.json instead of /openapi.json (which API Gateway blocks with 403).
+_root_path = "/Prod" if os.environ.get("AWS_LAMBDA_FUNCTION_NAME") else ""
+
 app = FastAPI(
     title="Ghostie Data Collection API",
     description="Collects news articles and customer reviews for hospitality businesses to support sentiment analysis.",
-    version="1.0.0"
+    version="1.0.0",
+    root_path=_root_path
 )
 
 
