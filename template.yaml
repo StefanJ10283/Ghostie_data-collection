@@ -8,6 +8,7 @@ Resources:
       CodeUri: .
       Handler: main.handler
       Runtime: python3.12
+      Timeout: 60
       Events:
         ApiCatchAll:
           Type: Api

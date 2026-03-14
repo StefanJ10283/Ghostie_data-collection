@@ -16,7 +16,8 @@ from ReviewCollector import collect_reviews
 # ── Local storage folder ─────────────────────────────────────────────────────
 # Results are saved here until S3 is ready.
 # When S3 is set up, swap this section for a boto3 upload — everything else stays the same.
-RESULTS_DIR = "collected_data"
+# Lambda's filesystem is read-only except /tmp; use /tmp when running on Lambda
+RESULTS_DIR = "/tmp/collected_data" if os.environ.get("AWS_LAMBDA_FUNCTION_NAME") else "collected_data"
 os.makedirs(RESULTS_DIR, exist_ok=True)
 
 
